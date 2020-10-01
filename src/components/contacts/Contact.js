@@ -8,18 +8,17 @@ class Contact extends Component {
             formData: {
                 firstName: "",
                 lastName: "",
-                email: ""
-
+                // email: ""
             }
         }
     }
     handleChange = (event) => {
-        const formData = { ...this.state.form }
-        formData[event.target.name] = event
+        const newformData = { ...this.state.form }
+        newformData[event.target.name] = event
 
-        this.setState({ formData });
+        this.setState({ newformData });
     }
-    handleSubmitted = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
 
         this.setstate({
@@ -30,18 +29,21 @@ class Contact extends Component {
         if (this.state.submitted) {
             return (
                 <div className="contact">
-
-                </div>       
-            }
+                    contact
+                </div>
+            );
+        }
         return (
             <div className="Contact">
-                <form onSubmit={this.handleChange}>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlfor="firstName">First name</label>
                         <input
                             type="text"
                             name="firstName"
-                            value={this.state.formData.firstName} />
+                            value={this.state.formData.firstName}
+                            onChange={this.handleChange}
+                        />
 
                     </div>
                     <div>
@@ -50,21 +52,28 @@ class Contact extends Component {
                             type="text"
                             name="lastName"
                             value={this.state.formData.value}
+                            onChange={this.handleChange}
                         />
                     </div>
                     <div>
-                        <label htmlfor="email">Email</label>
+                        {/* <label htmlfor="email">Email</label>
                         <input
                             type="text"
                             name="email"
                             value={this.state.formData.email}
-                        />
+                            onChange={this.handleChange}
+                        /> */}
                         <div>
-                            <label htmlfor="getAnswer"></label>
+                            <div>
+                                {this.state.formData.firstName}
+                                <br />
+                                {this.state.formData.lastName}
+                            </div>
+                            {/* <label htmlfor="getAnswer"></label>
                             <input
                                 type="text"
                                 name="answer"
-                            />
+                            /> */}
                         </div>
 
                     </div>
@@ -72,5 +81,6 @@ class Contact extends Component {
             </div>
         )
     }
+
 }
 export default Contact

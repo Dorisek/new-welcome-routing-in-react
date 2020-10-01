@@ -8,6 +8,7 @@ function Navigation(props) {
                 <li><link to="/">Home</link></li>
                 <li><link to="/" clock>Clock</link></li>
                 <li><link to="/" contact>Contact</link></li>
+                <li><link to="/" jeopardy>jeopardy</link></li>
             </ul>
 
         </div>
